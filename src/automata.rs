@@ -17,30 +17,30 @@ struct Automata {
 struct Cell {
     neighbour_count: u8,
     color: Color,
-    state: bool,
+    state: bool, // change -> u8
 }
 
-enum NeighbourhoodRule {
-    VonNeumann,
-    Moore,
-}
+// Create box where fun stuff happens
+// => startup system creating box
+// => cell creation function
+// => normal system checking box
+// => events when cell in box exists
+// => event reader function to run rules on cells
+// Attach egui to struct Automata
+// ? Starting condition/ how ? -> User created / predefined
 
-enum SpawnRule {}
+fn setup_automata(
+    mut commands: Commands,
+    mut meshes: ResMut<Assets<Mesh>>,
+    mut materials: ResMut<Assets<StandardMaterial>>,
+) {
+    let starting_size = 64;
+    let cell_container: Vec<Vec<Vec<_>>> = Vec::new();
 
-enum ColorRule {
-    XYZ,                  //Implement
-    Distance,             //Implement
-    White,                //Implement
-    StateShading,         //Implement
-    NeighbourhoodDensity, //Implement
-}
-
-fn generate_color(choosen_rule: ColorRule, cell_position: Vec3, neighbour_count: u8) -> Color {
-    match choosen_rule {
-        ColorRule::XYZ => (),
-        ColorRule::Distance => (),
-        ColorRule::White => Color::rgb(1., 1., 1.),
-        ColorRule::StateShading => (),
-        ColorRule::NeighbourhoodDensity => (),
+    // Some math to always center this around (0,0,0)
+    for i in 0..starting_size {
+        for j in 0..starting_size {
+            for k in 0..starting_size {}
+        }
     }
 }

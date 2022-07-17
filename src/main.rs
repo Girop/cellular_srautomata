@@ -6,6 +6,7 @@ use bevy::{
 use bevy_egui::EguiPlugin;
 
 mod automata;
+mod rules;
 
 fn main() {
     App::new()
