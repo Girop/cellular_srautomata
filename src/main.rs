@@ -1,12 +1,11 @@
+use automata::automataPlugin;
 use bevy::{
     input::mouse::{MouseMotion, MouseWheel},
     prelude::*,
 };
 use bevy_egui::EguiPlugin;
 
-
 mod automata;
-
 
 fn main() {
     App::new()
@@ -17,6 +16,7 @@ fn main() {
         .insert_resource(ClearColor(Color::rgb(0.04, 0.04, 0.04)))
         .add_plugins(DefaultPlugins)
         .add_plugin(EguiPlugin)
+        .add_plugin(automataPlugin)
         .add_startup_system(spawn_camera)
         .add_startup_system(spawn_cell)
         .add_system(pan_orbit_camera)
